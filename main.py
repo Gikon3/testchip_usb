@@ -22,6 +22,8 @@ SH_MEM_3 = "F0DA1003"
 SH_MEM_4 = "F0DA1004"
 SH_MEM_5 = "F0DA1005"
 SH_MEM_6 = "F0DA1006"
+SH_MEM_7 = "F0DA1007"
+SH_MEM_8 = "F0DA1008"
 
 print_mes = PrintMessage.PrintMessage()
 com_port = ComPort.ComPort(portname=PORTNAME)
@@ -151,6 +153,16 @@ try:
             print_mes.info(data, "Memory 6")
             f_number_errors = True
             error_name = errors.MEMORY6
+
+        elif data == SH_MEM_7:
+                    print_mes.info(data, "Memory 7")
+                    f_number_errors = True
+                    error_name = errors.MEMORY7
+
+        elif data == SH_MEM_8:
+                    print_mes.info(data, "Memory 8")
+                    f_number_errors = True
+                    error_name = errors.MEMORY8
 
         elif f_number_errors is True:
             f_number_errors = False
