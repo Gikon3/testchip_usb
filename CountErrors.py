@@ -6,6 +6,8 @@ class CountErrors:
     MEMORY4 = "Memory4"
     MEMORY5 = "Memory5"
     MEMORY6 = "Memory6"
+    MEMORY7 = "Memory7"
+    MEMORY8 = "Memory8"
     SHIFT_REG = "Shift reg"
 
     SH_START = "cxemai6 start"
@@ -22,6 +24,8 @@ class CountErrors:
                     MEMORY4: 0,
                     MEMORY5: 0,
                     MEMORY6: 0,
+                    MEMORY7: 0,
+                    MEMORY8: 0,
                     SHIFT_REG: 0}
 
     events_count = {SH_START: 0,
