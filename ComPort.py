@@ -11,6 +11,26 @@ class ComPort:
         self.STOPBITS = stopbits
         self.TIMEOUT = timeout
 
+        try:
+            self.port = serial.Serial(
+                port=self.PORTNAME,
+                baudrate=self.BAUNDRATE,
+                bytesize=self.BYTESIZE,
+                parity=self.PARITY,
+                stopbits=self.STOPBITS,
+                timeout=self.TIMEOUT)
+
+            print(self.PORTNAME, "is Open")
+        except serial.serialutil.SerialException:
+            self.reopen()
+
+    def reopen(self):
+        # print(hasattr(self, 'port'))
+        # if self.port and self.port.isOpen() is False:
+        #     self.port.close()
+        serial.Serial(port=self.PORTNAME).close()
+
+        # h = input("KKKKKKKKKKKKKKKKKK")
         self.port = serial.Serial(
             port=self.PORTNAME,
             baudrate=self.BAUNDRATE,
@@ -19,9 +39,16 @@ class ComPort:
             stopbits=self.STOPBITS,
             timeout=self.TIMEOUT)
 
-        print(self.PORTNAME, "is Open")
+        print(self.PORTNAME, "is ReOpen")
 
     def read(self):
-        msg = bytearray(self.port.read(4)).hex().upper()
+        try:
+            msg = bytearray(self.port.read(4)).hex().upper()
+        except serial.serialutil.SerialException:
+            self.reopen()
+            msg = bytearray(self.port.read(4)).hex().upper()
 
         return "{0:2s}{1:2s}{2:2s}{3:2s}".format(msg[-2:], msg[-4:-2], msg[-6:-4], msg[-8:-6])
+
+    def write(self, byte):
+        self.port.write(byte)
