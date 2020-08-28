@@ -1,13 +1,13 @@
 class CountErrors:
-    MEMORY0 = "Memory0"
-    MEMORY1 = "Memory1"
-    MEMORY2 = "Memory2"
-    MEMORY3 = "Memory3"
-    MEMORY4 = "Memory4"
-    MEMORY5 = "Memory5"
-    MEMORY6 = "Memory6"
-    MEMORY7 = "Memory7"
-    MEMORY8 = "Memory8"
+    MEMORY0 = "DICE_band_cutWell (CGDICE)"
+    MEMORY1 = "DICE_band_cutWell (CKLNQD1)"
+    MEMORY2 = "DFF (without DICE)"
+    MEMORY3 = "DFF (with Hamming)"
+    MEMORY4 = "DICE_band_cutWell"
+    MEMORY5 = "Hamming code"
+    MEMORY6 = "DICE_band"
+    MEMORY7 = "DICE_cutWell"
+    MEMORY8 = "DICE"
     SHIFT_REG = "Shift reg"
 
     SH_START = "cxemai6 start"
@@ -25,8 +25,7 @@ class CountErrors:
                     MEMORY5: 0,
                     MEMORY6: 0,
                     MEMORY7: 0,
-                    MEMORY8: 0,
-                    SHIFT_REG: 0}
+                    MEMORY8: 0}
 
     events_count = {SH_START: 0,
                     UNRESET_DEVICE: 0,
